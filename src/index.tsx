@@ -7,11 +7,11 @@ import { PersistGate } from "redux-persist/integration/react";
 import mockAxios from "./setup/axios/MockAxios";
 import reportWebVitals from "./reportWebVitals";
 import "antd/dist/antd.css";
-import "./assets/components/_variables.scss";
-import "./assets/components/components.scss";
+// import "./assets/components/_variables.scss";
+// import "./assets/components/components.scss";
 import store, { persistor } from "./setup/redux/Store";
 import { setupAxios } from "./setup/axios/SetupAxios";
-
+import "./index.scss";
 // import "./assets/sass/style.scss";
 // import "./assets/sass/style.react.scss";
 
