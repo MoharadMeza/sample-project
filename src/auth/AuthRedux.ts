@@ -1,4 +1,3 @@
-import { type } from "os";
 import { Action } from "redux";
 import persistReducer from "redux-persist/es/persistReducer";
 import storage from "redux-persist/es/storage";

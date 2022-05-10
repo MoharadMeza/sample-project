@@ -12,6 +12,7 @@ import "antd/dist/antd.css";
 import store, { persistor } from "./setup/redux/Store";
 import { setupAxios } from "./setup/axios/SetupAxios";
 import "./index.scss";
+import { BrowserRouter } from "react-router-dom";
 // import "./assets/sass/style.scss";
 // import "./assets/sass/style.react.scss";
 
@@ -22,7 +23,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={<>Loading...</>}>
+        <BrowserRouter>
         <App />
+        </BrowserRouter>
       </PersistGate>
     </Provider>
   </React.StrictMode>,

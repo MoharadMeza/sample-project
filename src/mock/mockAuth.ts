@@ -24,7 +24,6 @@ export const mockAuth = (mock: MockAdapter) => {
   mock.onGet(AUTH_REQUEST_USER_URL).reply(({ headers }) => {
     if (headers) {
       const { Authorization } = headers;
-      console.log(headers);
       const accessToken =
         Authorization &&
         Authorization.startsWith("Bearer ") &&

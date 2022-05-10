@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useDispatch } from "react-redux";
 import { Button, Card as AntdCrad, Input, Form, Checkbox, message } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
@@ -8,9 +8,9 @@ import { login } from "../AuthCRUD";
 
 function Login() {
   const dispatch = useDispatch();
-  message.config({});
+  // message.config({});
   const onSubmit = ({ email, password }: LoginForm) => {
-    console.log(email, password);
+
     login({ email: email, password: password })
       .then(({ data }) => {
         dispatch(actions.login(data.token));

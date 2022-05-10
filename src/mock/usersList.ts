@@ -17,7 +17,7 @@ export const UsersList: UserModel[] = [
     auth: {
       token: "80b770db-361c-4bc8-b995-30824dc9e7e6",
     },
-    email: "test@gmail.com",
+    email: "admin",
     firstName: "Jack",
     lastName: "Brown",
     phoneNumebr: "+989157661267",
