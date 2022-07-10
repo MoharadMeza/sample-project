@@ -1,16 +1,14 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 import { Button, Card as AntdCrad, Input, Form, Checkbox, message } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { LoginForm } from "./models/login";
-import { actions } from "../AuthRedux";
-import { login } from "../AuthCRUD";
+import * as actions from "auth/redux/auth-actions";
+import { login } from "../services/_auth-requests";
 
 function Login() {
   const dispatch = useDispatch();
   message.config({});
   const onSubmit = ({ email, password }: LoginForm) => {
-    console.log(email, password);
     login({ email: email, password: password })
       .then(({ data }) => {
         dispatch(actions.login(data.token));
@@ -54,11 +52,10 @@ function Login() {
               <Checkbox>Remember me</Checkbox>
             </Form.Item>
 
-            <a className="login-form-forgot" href="">
+            <a className="login-form-forgot" href="/">
               Forgot password
             </a>
           </Form.Item>
-
           <Form.Item className="text-center">
             <Button
               type="primary"
@@ -67,7 +64,7 @@ function Login() {
             >
               Log in
             </Button>
-            Or <a href=""> register now!</a>
+            Or <a href="/"> register now!</a>
           </Form.Item>
         </Form>
       </AntdCrad>

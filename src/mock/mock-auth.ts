@@ -1,6 +1,9 @@
 import MockAdapter from "axios-mock-adapter/types";
-import { UsersList } from "./usersList";
-import { AUTH_LOGIN_URL, AUTH_REQUEST_USER_URL } from "../auth/AuthCRUD";
+import { UsersList } from "./users-list";
+import {
+  AUTH_LOGIN_URL,
+  AUTH_REQUEST_USER_URL,
+} from "../auth/services/_auth-requests";
 
 export const mockAuth = (mock: MockAdapter) => {
   mock.onPost(AUTH_LOGIN_URL).reply((data) => {
@@ -14,17 +17,16 @@ export const mockAuth = (mock: MockAdapter) => {
       );
 
       if (user) {
-        const auth = user.auth;
-        return [200, { ...auth, password: undefined }];
+        return [200, user.auth];
       }
     }
 
     return [400];
   });
+
   mock.onGet(AUTH_REQUEST_USER_URL).reply(({ headers }) => {
     if (headers) {
       const { Authorization } = headers;
-      console.log(headers);
       const accessToken =
         Authorization &&
         Authorization.startsWith("Bearer ") &&
