@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import axios from "axios";
 import App from "./App";
 import { Provider } from "react-redux";
@@ -17,16 +17,16 @@ import "./index.scss";
 
 mockAxios(axios);
 setupAxios(axios, store);
+const root = createRoot(document.getElementById("root")!);
 
-ReactDOM.render(
+root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={<>Loading...</>}>
         <App />
       </PersistGate>
     </Provider>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
